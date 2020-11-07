@@ -90,6 +90,7 @@ export default {
         axios
           .post("http://localhost:3000/keranjangs", this.pesan)
           .then(() => {
+            this.$router.push({ path: "/cart" });
             this.$toast.success("Sukses Masuk Keranjang", {
               type: "success",
               position: "top-right",
@@ -101,7 +102,7 @@ export default {
             console.log("Gagal : " + error);
           });
       } else {
-        this.$toast.success("Isi jumlah pesanan dan keterangan", {
+        this.$toast.error("Isi jumlah pesanan dan keterangan", {
           type: "error",
           position: "top-right",
           duration: 3000,
